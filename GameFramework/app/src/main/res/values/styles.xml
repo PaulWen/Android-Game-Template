@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Theme -->
+    <style name="AppTheme" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+
+    </style>
+    
+    
+    <!-- TextView -->
+    <style name="Widget.TextView" parent="@android:style/Widget.TextView">
+       <item name="customFont">munro.ttf</item>
+    </style>
+    
+	    <!-- Überschriften -->
+    <style name="Widget.TextView.H" parent="@style/Widget.TextView">
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:gravity">center</item>
+       <item name="android:layout_margin">@dimen/raster2</item>
+    </style>
+    
+    <style name="Widget.TextView.H.H0" parent="@style/Widget.TextView.H">
+       <item name="android:textSize">@dimen/text5</item>
+    </style>
+    
+    <style name="Widget.TextView.H.H1" parent="@style/Widget.TextView.H">
+       <item name="android:textSize">@dimen/text4</item>
+    </style>
+    
+	    <!-- Text -->
+    <style name="Widget.TextView.T" parent="@style/Widget.TextView">
+       <item name="android:layout_width">wrap_content</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:gravity">left</item>
+       <item name="android:layout_marginLeft">@dimen/raster3</item>
+       <item name="android:layout_marginRight">@dimen/raster3</item>
+       <item name="android:textColor">@color/blue</item>
+    </style>
+    
+    <style name="Widget.TextView.T.Small" parent="@style/Widget.TextView.T">
+       <item name="android:textSize">@dimen/text1</item>
+    </style>
+    
+    <style name="Widget.TextView.T.Normal" parent="@style/Widget.TextView.T">
+       <item name="android:textSize">@dimen/text2</item>
+    </style>
+    
+    <style name="Widget.TextView.T.Big" parent="@style/Widget.TextView.T">
+       <item name="android:textSize">@dimen/text3</item>
+    </style>
+
+    
+    <!-- Controlls -->
+    <style name="Widget.Control.GameButton" parent="@android:style/Widget">
+       <item name="android:layout_width">wrap_content</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:layout_marginTop">@dimen/raster1</item>
+       <item name="android:layout_marginBottom">@dimen/raster1</item>
+       <item name="android:layout_marginLeft">@dimen/raster3</item>
+       <item name="android:layout_marginRight">@dimen/raster3</item>
+    </style>
+    
+    <style name="Widget.Control.MenuButton" parent="@android:style/Widget.Button">
+       <item name="customFont">munro.ttf</item>
+       <item name="android:layout_width">250dp</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:textSize">@dimen/text3</item>
+       <item name="android:gravity">center</item>
+       <item name="android:layout_marginTop">@dimen/raster1</item>
+       <item name="android:layout_marginBottom">@dimen/raster1</item>
+       <item name="android:layout_marginLeft">@dimen/raster3</item>
+       <item name="android:layout_marginRight">@dimen/raster3</item>
+       <item name="android:background">@drawable/button_menu_background</item>
+       <item name="android:textColor">@drawable/button_menu_color</item>
+       <item name="android:padding">@dimen/raster2</item>
+    </style>
+
+    <style name="Widget.Control.SeekBar" parent="@android:style/Widget.SeekBar">
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_marginTop">@dimen/raster1</item>
+       <item name="android:layout_marginBottom">@dimen/raster1</item>
+       <item name="android:layout_marginLeft">@dimen/raster3</item>
+       <item name="android:layout_marginRight">@dimen/raster3</item>
+       <item name="android:thumb">@drawable/shoot_player</item>
+       <item name="android:progressDrawable">@drawable/alien1</item>
+    </style>
+
+
+
+
+    <!-- Layouts -->
+    <style name="Layout">
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:gravity">center</item>
+       <item name="android:layout_margin">@dimen/raster0</item>
+    </style>
+    
+    <style name="GameLayout">
+       <item name="android:layout_width">wrap_content</item>
+       <item name="android:layout_height">wrap_content</item>
+       <item name="android:orientation">horizontal</item>
+       <item name="android:layout_margin">@dimen/raster0</item>
+       <item name="android:padding">@dimen/raster1</item>
+    </style>
+    
+    <style name="Layout.MainLinearLayout" parent="@style/Layout">
+       <item name="android:background">@drawable/background</item>
+       <item name="android:orientation">vertical</item>
+    </style>
+    
+    <style name="Layout.ButtonLineLinearLayout" parent="@style/Layout">
+       <item name="android:orientation">horizontal</item>
+    </style>
+    
+    <style name="Layout.ScrollView" parent="@style/Layout">
+       <item name="android:scrollbars">none</item>
+    </style>
+    
+    <style name="Layout.CenterLinearLayout" parent="@style/Layout">
+       <item name="android:layout_height">0dp</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:orientation">vertical</item>
+    </style>
+    
+    <style name="Layout.TableLayout" parent="@style/Layout">
+    </style>
+    <style name="Layout.TableRow" parent="@style/Layout">
+    </style>
+
+</resources>

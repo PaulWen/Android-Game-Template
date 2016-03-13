@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout.MainLinearLayout" >
+
+    
+    <LinearLayout
+        style="@style/Layout.CenterLinearLayout" >
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"/>
+
+		<!-- Überschrift -->
+	    <de.wenzel.paul.gameframework.view.FontTextView
+	        style="@style/Widget.TextView.H.H1"
+	        android:text="@string/options"
+	        android:textColor="@color/red" />
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"/>
+
+	    <ScrollView
+	        style="@style/Layout.ScrollView" >
+	
+	        <TableLayout
+	           style="@style/Layout.TableLayout" >
+	
+	            <TableRow
+	                style="@style/Layout.TableRow" >
+	
+	                <de.wenzel.paul.gameframework.view.FontTextView
+	                    style="@style/Widget.TextView.T.Big"
+	                    android:text="@string/soundtrack_colon" />
+	
+	                <SeekBar
+	                    android:id="@+id/seekBarSoundtrackOptionsMenu"
+	                    style="@style/Widget.Control.SeekBar" />
+	            </TableRow>
+	
+	            <TableRow
+	                style="@style/Layout.TableRow" >
+	
+	                <de.wenzel.paul.gameframework.view.FontTextView
+	                    style="@style/Widget.TextView.T.Big"
+	                    android:text="@string/sound_effects_colon" />
+	
+	                <SeekBar
+	                    android:id="@+id/seekBarSoundEffectsOptionsMenu"
+	                    style="@style/Widget.Control.SeekBar" />
+	
+	            </TableRow>
+	        </TableLayout>
+	    </ScrollView>
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="1"/>
+
+	  </LinearLayout>
+
+ <de.wenzel.paul.gameframework.view.FontButton
+        android:id="@+id/buttonBackOptionsMenu"
+        style="@style/Widget.Control.MenuButton"
+        android:layout_gravity="left"
+        android:text="@string/back" />
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout.MainLinearLayout" >
+
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1"/>
+
+    <!-- Überschrift -->
+	<de.wenzel.paul.gameframework.view.FontTextView
+		style="@style/Widget.TextView.H.H1"
+        android:text="@string/app_name"
+        android:textColor="@color/red"
+	/>
+
+    
+    <View
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1"/>
+
+    <ScrollView 
+        style="@style/Layout.ScrollView">
+	    <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:orientation="vertical" >
+	        
+	        
+	        
+		    <!-- Buttons -->
+		    <de.wenzel.paul.gameframework.view.FontButton
+		        android:id="@+id/buttonPlayStartMenu"
+		        android:text="@string/play"
+		        style="@style/Widget.Control.MenuButton"
+		    />
+		     
+		    <de.wenzel.paul.gameframework.view.FontButton
+		        android:id="@+id/buttonBuildShipStartMenu"
+		        android:text="@string/build_ship"
+		        style="@style/Widget.Control.MenuButton"
+		    />
+		     
+		    <de.wenzel.paul.gameframework.view.FontButton
+		        android:id="@+id/buttonOptionsStartMenu"
+		        android:text="@string/options"
+		        style="@style/Widget.Control.MenuButton"
+		    />
+		     
+		    <de.wenzel.paul.gameframework.view.FontButton
+		        android:id="@+id/buttonCreditsStartMenu"
+		        android:text="@string/credits"
+		        style="@style/Widget.Control.MenuButton"
+		    />
+		     
+		    
+		    
+	    </LinearLayout>
+    </ScrollView>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1"/>
+    
+</LinearLayout>
