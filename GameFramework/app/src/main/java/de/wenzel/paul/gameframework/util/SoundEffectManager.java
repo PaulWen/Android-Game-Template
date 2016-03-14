@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import de.wenzel.paul.gameframework.Config;
-import de.wenzel.paul.gameframework.controller.MainActivity;
+import de.wenzel.paul.gameframework.controller.AbstractMainActivity;
 
 
 /**
@@ -60,8 +60,8 @@ public class SoundEffectManager {
 	 * @param fileName => der Name des Soundes, wie er ind der SoundList zufinden ist
 	 */
 	public static void playSoundEffect(String fileName) {
-		if (MainActivity.optionsSharedPreferences.isSoundEffectsOn()) { //nur wenn Soundeffecte in den Optionen an sind
-			float soundEffectVolume = MainActivity.optionsSharedPreferences.getSoundEffectsVolume();
+		if (AbstractMainActivity.optionsSharedPreferences.isSoundEffectsOn()) { //nur wenn Soundeffecte in den Optionen an sind
+			float soundEffectVolume = AbstractMainActivity.optionsSharedPreferences.getSoundEffectsVolume();
 			soundPool.play(soundList.get(fileName), soundEffectVolume, soundEffectVolume, 1, 0, 0);
 		}
 	}

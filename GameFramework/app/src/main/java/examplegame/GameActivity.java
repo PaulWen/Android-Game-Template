@@ -1,6 +1,6 @@
 package examplegame;
 
-import android.view.KeyEvent;
+import android.content.Intent;
 import android.view.View;
 
 import de.wenzel.paul.gameframework.R;
@@ -18,7 +18,7 @@ public class GameActivity extends AbstractGameActivity implements View.OnClickLi
 /////////////////////////////////////////////////Konstruktor/////////////////////////////////////////////////
 
     public GameActivity() {
-        super(new GameModel(), R.layout.game, R.id.gamelayout);
+        super(new GameModel(), R.layout.game, R.id.gamelayout, R.raw.soundtrack1);
     }
 
 //////////////////////////////////////////////Getter und Setter//////////////////////////////////////////////
@@ -80,22 +80,6 @@ public class GameActivity extends AbstractGameActivity implements View.OnClickLi
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_MENU) {
-//            continueMusic = true;
-//            Intent intent = new Intent(this, PauseMenuActivity.class);
-//            startActivity(intent);
-//        } else if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            continueMusic = true;
-//            Intent intent = new Intent(this, PauseMenuActivity.class);
-//            startActivity(intent);
-//        }
-//
-//        return true;
-        return false;
-    }
-
-    @Override
     protected void createNewEntities() {
 
     }
@@ -103,6 +87,19 @@ public class GameActivity extends AbstractGameActivity implements View.OnClickLi
     @Override
     protected void removeOldEntities() {
 
+    }
+
+    @Override
+    protected boolean menuButton() {
+        Intent intent = new Intent(this, OptionsMenuActivity.class);
+        startActivity(intent);
+
+        return true;
+    }
+
+    @Override
+    protected boolean backButton() {
+        return false;
     }
 
 //////////////////////////////////////////////////Methoden///////////////////////////////////////////////////

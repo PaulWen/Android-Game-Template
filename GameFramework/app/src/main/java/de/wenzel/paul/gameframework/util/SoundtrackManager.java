@@ -3,7 +3,7 @@ package de.wenzel.paul.gameframework.util;
 import android.content.Context;
 import android.media.MediaPlayer;
 
-import de.wenzel.paul.gameframework.controller.MainActivity;
+import de.wenzel.paul.gameframework.controller.AbstractMainActivity;
 import de.wenzel.paul.gameframework.model.sharedpreferences.OptionsSharedPreferences;
 
 /**
@@ -31,7 +31,7 @@ public class SoundtrackManager implements OptionsSharedPreferences.OptionsShared
 	 */
 	public SoundtrackManager() {
 		//Datenfelder initialisieren
-		MainActivity.optionsSharedPreferences.addOptionsSharedPreferencesListener(this);
+		AbstractMainActivity.optionsSharedPreferences.addOptionsSharedPreferencesListener(this);
 	}
 
 /////////////////////////////////////////////Getter und Setter////////////////////////////////////////////////
@@ -42,7 +42,7 @@ public class SoundtrackManager implements OptionsSharedPreferences.OptionsShared
 
 	@Override
 	public void optionsSharedPreferencesChanged() {
-		float soundtrackVolume = MainActivity.optionsSharedPreferences.getSoundtrackVolume();
+		float soundtrackVolume = AbstractMainActivity.optionsSharedPreferences.getSoundtrackVolume();
 		mediaPlayer.setVolume(soundtrackVolume, soundtrackVolume);
 	}
 
@@ -57,7 +57,7 @@ public class SoundtrackManager implements OptionsSharedPreferences.OptionsShared
 	 * @param resourceID
 	 */
 	public static void startMediaPlayer(Context context, int resourceID) {
-		if (MainActivity.optionsSharedPreferences.isSoundtrackOn()) {
+		if (AbstractMainActivity.optionsSharedPreferences.isSoundtrackOn()) {
 			if (resourceID == currentTrackResourceID) {
 				resumeMediaPlayer();
 			} else {
@@ -65,7 +65,7 @@ public class SoundtrackManager implements OptionsSharedPreferences.OptionsShared
 				currentTrackResourceID = resourceID;
 				mediaPlayer = MediaPlayer.create(context, resourceID);
 				mediaPlayer.setLooping(true);
-				float soundtrackVolume = MainActivity.optionsSharedPreferences.getSoundtrackVolume();
+				float soundtrackVolume = AbstractMainActivity.optionsSharedPreferences.getSoundtrackVolume();
 				mediaPlayer.setVolume(soundtrackVolume, soundtrackVolume);
 				mediaPlayer.start();
 			}
@@ -86,7 +86,7 @@ public class SoundtrackManager implements OptionsSharedPreferences.OptionsShared
 	 * Die Methode setzt die wiedergabe des MediaPlayers fort, an der stelle an welcher er pausiert wurde.
 	 */
 	private static void resumeMediaPlayer() {
-		if (MainActivity.optionsSharedPreferences.isSoundtrackOn() && length != -1 && mediaPlayer != null) {
+		if (AbstractMainActivity.optionsSharedPreferences.isSoundtrackOn() && length != -1 && mediaPlayer != null) {
 			mediaPlayer.seekTo(length);
 			mediaPlayer.start();
 			length = -1;
