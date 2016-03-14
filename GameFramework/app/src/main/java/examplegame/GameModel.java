@@ -4,13 +4,11 @@ import android.graphics.Color;
 
 import java.util.ArrayList;
 
-import de.wenzel.paul.gameframework.Config;
 import de.wenzel.paul.gameframework.R;
-import de.wenzel.paul.gameframework.model.ViewModelInterface;
+import de.wenzel.paul.gameframework.model.AbstractGameModel;
 import de.wenzel.paul.gameframework.model.entities.ColoredOpenGlObject;
 import de.wenzel.paul.gameframework.model.entities.OpenGlObject;
 import de.wenzel.paul.gameframework.model.entities.TexturedOpenGlObject;
-import de.wenzel.paul.gameframework.util.Rectangle;
 
 /**
  * Die Klasse {@link GameModel} ist das Model vom Spiel. Es speichert und verwaltet alle Objekte auf dem Spielfeld.
@@ -19,15 +17,9 @@ import de.wenzel.paul.gameframework.util.Rectangle;
  * @author Paul Wenzel
  *
  */
-public class GameModel implements ViewModelInterface {
+public class GameModel extends AbstractGameModel {
 	
 /////////////////////////////////////////////////Datenfelder/////////////////////////////////////////////////
-
-	/**
-	 * dient dazu zu definieren, welcher Bereich aus der Welt dme Spieler gezeigt werden soll.
-	 * (Der Bereich wird in Weltkoordinaten angegeben)
-	 */
-	private Rectangle viewPort;
 
 /////////////////////////////////////////////////Konstruktor/////////////////////////////////////////////////
 	
@@ -36,7 +28,6 @@ public class GameModel implements ViewModelInterface {
 	 */
 	public GameModel() {
 		// Datenfelder initialisieren
-		viewPort = new Rectangle(0, 0, Config.viewPortWidthInWorldcoordinates, Config.viewPortHeightInWorldcoordinates);
 	}
 	
 //////////////////////////////////////////////Getter und Setter//////////////////////////////////////////////
@@ -56,10 +47,6 @@ public class GameModel implements ViewModelInterface {
 		entitiesToDraw.add(new ColoredOpenGlObject(100, 100, 5000, 3000, Color.rgb(250, 40, 5)));
 
 		return entitiesToDraw;
-	}
-
-	public Rectangle viewPort() {
-		return viewPort;
 	}
 
 //////////////////////////////////////////////////Methoden///////////////////////////////////////////////////

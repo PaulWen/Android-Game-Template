@@ -1,4 +1,4 @@
-package com.dreede.spaceinvaders.model.databases;
+package de.wenzel.paul.gameframework.model.databases;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author Paul Wenzel
  *
  */
-public class HighscoreDatabaseManager extends SQLiteOpenHelper {
+public abstract class HighscoreDatabaseManager extends SQLiteOpenHelper {
 	
 /////////////////////////////////////////////////Datenfelder/////////////////////////////////////////////////
 	

@@ -19,7 +19,7 @@ public interface AnimationInterface {
 //////////////////////////////////////////////////Methoden///////////////////////////////////////////////////
 
 	/**
-	 * Die Methode startet die Animation.
+	 * Die Methode wird vor jedem Frame aufgerufen um alle Objekte zu animieren.
 	 * 
 	 * @param loopDuration wie lange das letzte Update her ist (in Millisekunden)
 	 */

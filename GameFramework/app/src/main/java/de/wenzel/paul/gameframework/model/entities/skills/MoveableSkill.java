@@ -94,7 +94,7 @@ public class MoveableSkill {
 	 * Die Methode ermöglicht es die aktuelle Geschwindigkeit auf der y-Achse des Objektes zu setzen.
 	 * Maximal kann der Wert dabei +/- maxVelocityY annehmen!
 	 * 
-	 * @param velocityX die gewünschte aktuelle Geschwindigkeit des Objektes
+	 * @param velocityY die gewünschte aktuelle Geschwindigkeit des Objektes
 	 */
 	public void setVelocityY(float velocityY) {
 		if (velocityY <= maxVelocityY  && velocityY >= maxVelocityY * -1) {

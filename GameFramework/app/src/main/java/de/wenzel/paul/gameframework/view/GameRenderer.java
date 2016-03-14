@@ -162,7 +162,7 @@ public class GameRenderer implements Renderer {
 //////////////////////////////////////////////////Methoden///////////////////////////////////////////////////
 
 	/**
-	 * Die Methode wird von der GameActivity aufgerufen, wenn die Activity fortgesetzt wird.
+	 * Die Methode wird von der AbstractGameActivity aufgerufen, wenn die Activity fortgesetzt wird.
 	 */
 	public void onResume() {
 		// lastFrame setzen

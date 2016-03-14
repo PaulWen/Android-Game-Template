@@ -13,7 +13,7 @@ public class DestroyableSkill {
 	
 /////////////////////////////////////////////////Datenfelder/////////////////////////////////////////////////
 	
-	/** die maximale Anzahl an Leben die das Objekt */
+	/** die maximale Anzahl an Leben die das Objekt jemals hatte */
 	private int maxLives;
 	
 	/** die Anzahl an Leben die das Objekt noch hat (0 = zerstört) */

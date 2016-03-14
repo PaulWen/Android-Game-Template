@@ -1,44 +1,25 @@
 package examplegame;
 
-import android.app.Activity;
-import android.opengl.GLSurfaceView;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-
-import java.util.ArrayList;
 
 import de.wenzel.paul.gameframework.R;
-import de.wenzel.paul.gameframework.controller.animation.AnimationInterface;
-import de.wenzel.paul.gameframework.util.SoundtrackManager;
-import de.wenzel.paul.gameframework.view.GameRenderer;
+import de.wenzel.paul.gameframework.controller.AbstractGameActivity;
 
 /**
  * Die Klasse {@link GameActivity} ist die Activity des eigentlichen Spiels. Sie koordiniert den gesamten Ablauf.
  *
  * @author Paul Wenzel
  */
-public class GameActivity extends Activity implements AnimationInterface, View.OnClickListener {
+public class GameActivity extends AbstractGameActivity implements View.OnClickListener {
 
 /////////////////////////////////////////////////Datenfelder/////////////////////////////////////////////////
 
-    /**
-     * das Model
-     */
-    private GameModel model;
+/////////////////////////////////////////////////Konstruktor/////////////////////////////////////////////////
 
-    /**
-     * die OpenGL SurfaceView auf die gezeichnet wird
-     */
-    private GLSurfaceView gameSurfaceView;
-    /**
-     * der Renderer, welcher auf die SurfaceView zeichnet und somit die View ist
-     */
-    private GameRenderer gameRenderer;
-
-    private boolean continueMusic;
+    public GameActivity() {
+        super(new GameModel(), R.layout.game, R.id.gamelayout);
+    }
 
 //////////////////////////////////////////////Getter und Setter//////////////////////////////////////////////
 
@@ -46,64 +27,18 @@ public class GameActivity extends Activity implements AnimationInterface, View.O
 ///////////////////////////////////////////////geerbte Methoden//////////////////////////////////////////////
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void create() {
 
-        // Datenfelder initialisieren
-        // View aufbauen
-        setContentView(R.layout.game);
-
-        final RelativeLayout gameLayout = (RelativeLayout) findViewById(R.id.gamelayout);
-        gameSurfaceView = new GLSurfaceView(this);
-        // SurfaceView dem Layout hinzufügen
-        RelativeLayout.LayoutParams glParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-        gameLayout.addView(gameSurfaceView, glParams);
-
-        // Alle View Elemente in den Vordergrund vor das Spielfeld hohlen
-        for (View view : getAllChildren(gameLayout)) {
-            if (view != gameSurfaceView) {
-                view.bringToFront();
-            }
-        }
-
-        model = new GameModel();
-
-        gameRenderer = new GameRenderer(this, model, this);
-
-        ////////////GameSurfaceView konfigurieren////////////
-        // angeben, dass die Applikation für OpenGL 2.0 erstellt wird
-        gameSurfaceView.setEGLContextClientVersion(2);
-        // EGLConfigChooser setzen
-        gameSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-        // Renderer erstellen und dieser View zuweisen
-        gameSurfaceView.setRenderer(gameRenderer);
-        // der Renderer soll dauerhaft diese View neuzeichnen
-        gameSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        gameSurfaceView.setVisibility(View.GONE);
+    protected void pause() {
 
-        if (!continueMusic) SoundtrackManager.pauseMediaPlayer();
     }
 
     @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus && gameSurfaceView.getVisibility() == View.GONE) {
-            gameSurfaceView.setVisibility(View.VISIBLE);
-        }
-    }
+    protected void resume() {
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        gameRenderer.onResume();
-
-        SoundtrackManager.startMediaPlayer(this, R.raw.soundtrack1);
-        continueMusic = false;
     }
 
     @Override
@@ -160,31 +95,18 @@ public class GameActivity extends Activity implements AnimationInterface, View.O
         return false;
     }
 
+    @Override
+    protected void createNewEntities() {
+
+    }
+
+    @Override
+    protected void removeOldEntities() {
+
+    }
+
 //////////////////////////////////////////////////Methoden///////////////////////////////////////////////////
 
-    private ArrayList<View> getAllChildren(View view) {
-
-        if (!(view instanceof ViewGroup)) {
-            ArrayList<View> viewArrayList = new ArrayList<View>();
-            viewArrayList.add(view);
-            return viewArrayList;
-        }
-
-        ArrayList<View> result = new ArrayList<View>();
-
-        ViewGroup viewGroup = (ViewGroup) view;
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-
-            View child = viewGroup.getChildAt(i);
-
-            ArrayList<View> viewArrayList = new ArrayList<View>();
-            viewArrayList.add(view);
-            viewArrayList.addAll(getAllChildren(child));
-
-            result.addAll(viewArrayList);
-        }
-        return result;
-    }
 
 ///////////////////////////////////////////////Innere Klassen////////////////////////////////////////////////	
 
